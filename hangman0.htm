@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hangman</title>
+<style>
+.back {
+    background-color: #240047;
+}
+
+.CENTER {
+    position: center;
+    text-align:center;
+    height = 900px;
+    width = 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropbtn {
+    background-color: #00FF80;
+    color: #240047;
+    padding: 16px;
+    font-size: 26px;
+    border: solid;
+    cursor: pointer;
+    margin-left: 520px;
+    margin-right: 520px;
+    position: center;
+    text-align:center;
+    border-color:#00FF80;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #240047;
+    color: #00FF80;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 500px;
+    right: 500px;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 200px;
+    border: 0px;
+    background-color: #ffffff;
+    font-size: 20px;
+}
+
+.dropdown-content button:hover {
+    background-color: #A6A6AD;
+    color: black;
+}
+
+.show {display:block;}
+
+.title {
+    color: #00FF80;
+    position: center;
+    text-align: center;
+    display: block;
+    font-family: Monaco;
+    height: 460px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+canvas {
+    border: 0px;
+    background-color: #240047;
+    padding: 100;
+    margin: auto;
+    display: block;
+}
+
+.buTTon {
+    text-align: center;
+    width: 1000px;
+    height: 200px;
+    padding: 100;
+    margin: auto;
+    display: none;
+    position: center;
+}
+
+.buton {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color: #240047;
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #00FF80;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #00FF80;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.buton::hover, .buton::focus {
+    background-color: #00FF80;
+    color: #240047;
+}
+
+.footnote {
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 250px;
+    display: block;
+    padding: 0px;
+}
+
+.COUNTER {
+    position: absolute;
+    top: 20px;
+}
+
+.CLICK {
+    position: absolute;
+    text-align: right;
+    top: 20px;
+    right: 10px;
+    margin-left: 1300px;
+}
+
+</style>
+</head>
+
+<body class="back">
+<span id="Counter" class="COUNTER">
+ <!-- hitwebcounter Code START -->
+<img style="position: relative;z-index: 2;" src="http://hitwebcounter.com/counter/counter.php?page=6284947&style=0007&nbdigits=9&type=ip&initCount=0" title="" Alt=""   border="0" ><br>
+<img style="position: relative;z-index: 1;" src="http://hitwebcounter.com/counter/counter.php?page=6284945&style=0007&nbdigits=9&type=page&initCount=0" title="" Alt=""   border="0" >
+</a>
+  </span>
+
+<span id="Click" class="CLICK">
+  <a style="padding: 12px 16px; border: 0px; color: #240047; background-color: #00FF80;" href="http://www.hangmangame.net16.net/default.htm" alt="">ORIGINAL</a>
+  </span>
+
+<div id="Texts" class="title">
+  <h2 style="height:240px;font-size: 70px;" ><strong>Hangman</strong></h2>
+  <p style="height:90px;font-size:25px">In this game you choose a category.<br>I give you a word from that category with the consonents replaced by blanks.<br>You get five chances to guess the word. Good Luck :)</p>
+  <p style="height:50px;font-size:20px">Choose a category:</p>
+  </div>
+
+<div class="CENTER">
+<div id="dropDown" class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Categories</button>
+  <span id="myDropdown" class="dropdown-content">
+    <button onclick="sports()">Sports</button>
+    <button onclick="animals()">Animals</button>
+    <button onclick="places()">Places</button>
+    <button onclick="food()">Food</button>
+    <button onclick="words()">Words</button>
+  </span>
+</div>
+</div>
+
+<div id="foot" class="footnote">
+  <hr style="color:white;"></hr>
+  <p style="color:white;font-size:17px">
+  Note: For best experience do not check the "Prevent this page from creating addition dialogs" check box<br>If you find any bug email me at kundubaidya99@gmail.com
+  </p>
+  </div>
+
+
+<div id="Button" class="buTTon">
+  <button class="buton" style="" id="B" onclick="onClick('B')">B</button>
+  <button class="buton" style="" id="C" onclick="onClick('C')">C</button>
+  <button class="buton" style="" id="D" onclick="onClick('D')">D</button>
+  <button class="buton" style="" id="F" onclick="onClick('F')">F</button>
+  <button class="buton" style="" id="G" onclick="onClick('G')">G</button>
+  <button class="buton" style="" id="H" onclick="onClick('H')">H</button>
+  <button class="buton" style="" id="J" onclick="onClick('J')">J</button>
+  <button class="buton" style="" id="K" onclick="onClick('K')">K</button>
+  <button class="buton" style="" id="L" onclick="onClick('L')">L</button>
+  <button class="buton" style="" id="M" onclick="onClick('M')">M</button>
+  <button class="buton" style="" id="N" onclick="onClick('N')">N</button>
+  <button class="buton" style="" id="P" onclick="onClick('P')">P</button>
+  <button class="buton" style="" id="Q" onclick="onClick('Q')">Q</button>
+  <button class="buton" style="" id="R" onclick="onClick('R')">R</button>
+  <button class="buton" style="" id="S" onclick="onClick('S')">S</button>
+  <button class="buton" style="" id="T" onclick="onClick('T')">T</button>
+  <button class="buton" style="" id="V" onclick="onClick('V')">V</button>
+  <button class="buton" style="" id="W" onclick="onClick('W')">W</button>
+  <button class="buton" style="" id="X" onclick="onClick('X')">X</button>
+  <button class="buton" style="" id="Y" onclick="onClick('Y')">Y</button>
+  <button class="buton" style="" id="Z" onclick="onClick('Z')">Z</button>
+</div>
+
+<script src="hangman.js"></script>
+</body>
+</html>
